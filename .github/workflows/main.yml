@@ -1,0 +1,26 @@
+name: Maven project
+on:
+  push:
+    branches: [ "master" ]
+    
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Collecting source code from github
+        uses: actions/checkout@v7.0.0
+
+      - name: Installing Java
+        uses: actions/setup-java@v5.5.0
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Installing Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: '3.8.2'
+          
+      - name: Running Maven project
+        run: mvn package

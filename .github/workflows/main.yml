@@ -16,11 +16,6 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-
-      - name: Installing Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: '3.8.2'
           
       - name: Running Maven project
         run: mvn package
